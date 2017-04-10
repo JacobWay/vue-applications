@@ -1,0 +1,13 @@
+<div id="trade_panel">
+    <common-panel :class="hideChartClass" name="trade">
+        <template slot="tabs">
+                    <span v-for="i in tradeTabs" :class="i.class" @click="clickTab(tradeTabs,i,1)">{{i.text}}</span>
+                </template>
+        <template slot="content" v-for="i in tradeTabs">
+                    <component :is="i.component" v-show="i.class"></component>
+                </template>
+        <template slot="content">
+                    <common-trade-order></common-trade-order>
+                </template>
+    </common-panel>
+</div>
